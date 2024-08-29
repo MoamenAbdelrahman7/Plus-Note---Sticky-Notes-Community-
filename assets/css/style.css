@@ -112,7 +112,65 @@ main .notes p.date{
     font-weight: 500;
 }
 
-
+/* Responsivness */
+@media screen and (max-width: 426px) {
+    header{
+        height: 60px;
+        padding-inline: 15px;
+    }
+    
+    header button.add-note img{
+        width:35px;
+    }
+    /* header .right{
+        gap: 20px;
+        height: 100%;
+        width: 34%;
+        justify-content: flex-end;
+    } */
+    
+    
+    /* header .right .search-bar input{
+        height: 40px;
+        width: 230px;
+        border-radius: 4px;
+        padding: 4px 10px;
+    } */
+    
+    /* header .right .search-bar img.search-icon{
+        position: absolute;
+        width: 20px;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    } */
+    
+    /* header .right button.dark-mode img{
+        width: 30px;
+    } */
+    
+    /* main style */
+    main{
+        padding: 25px 20px;
+        height: auto;
+    }
+    
+    main .notes {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+        /* height: 100%;
+        width: 100%;
+        gap: 20px; */
+    }
+    main .notes .note{
+        /* height: 100%;
+        width: 100%;
+        min-height: 130px;
+        border-radius: 10px; */
+        padding: 20px;
+    }
+    
+}
 
 
 
