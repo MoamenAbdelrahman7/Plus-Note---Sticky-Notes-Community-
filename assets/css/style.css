@@ -6,7 +6,10 @@
     box-sizing: border-box;
     font-family: "Poppins";
 }
-
+/* hide the scrollbar of body */
+body::-webkit-scrollbar{
+    display: none;
+}
 button{
     cursor: pointer;
 }
@@ -80,7 +83,9 @@ main .notes .note{
     padding: 12px;
     box-shadow: 4px 4px 20px rgba(158, 165, 172, 0.42);
     animation: animate-note 0.5s;
+    position: relative;
 }
+
 @keyframes animate-note {
     from{
         translate: -10px;
@@ -110,6 +115,33 @@ main .notes textarea::-webkit-scrollbar{
 main .notes p.date{
     font-size: 10px;
     font-weight: 500;
+}
+main .notes button.optionsBt{
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    background: none;
+    border: none;
+}
+main .notes button img{
+    width: 20px;
+}
+main .notes .note div.options{
+    position: absolute;
+    right: 0px;
+    bottom: 46px;
+    background-color: azure;
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    width: fit-content;
+    font-weight: 500;
+    padding: 14px 8px;
+    border-radius: 10px;
+}
+main .notes .note div.options button{
+    background: none;
+    border: none;
 }
 
 /* Responsivness */

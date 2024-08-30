@@ -20,7 +20,40 @@ function changeNoteBgColor(note){
 }
 allNotes.forEach(note => {
     changeNoteBgColor(note);
+    handelMenuBt(note);
+
+    // let favBt = note.querySelector(".options .fav");
+    // delBt.addEventListener("click", () => {
+
+    // });
+
+    deleteNote(note);
+    
 });
+// handel delete note button
+function deleteNote(note){
+    let delBt = note.querySelector(".options .del"); 
+    delBt.addEventListener("click", () => {
+        note.style.display = "none";
+        // send delete request ...
+    });
+}
+
+// handel menu button
+function handelMenuBt(note){
+    let optionsBt = note.querySelector(".optionsBt");
+    let options = note.querySelector(".options");
+    optionsBt.addEventListener("click", () => {
+        console.log("sadddddddddddddddd")
+
+        if ( options.style.display === "none" ||  options.style.display === ""){
+            options.style.display = "flex";
+        }
+        else if ( options.style.display === "flex"){
+            options.style.display = "none";
+        }
+    } );
+}
 
 
 
@@ -88,11 +121,44 @@ addNoteBt.addEventListener("click", () => {
     note.appendChild(textarea);
     note.appendChild(date);
 
+    /*
+    <button class="optionsBt"><img src="assets/images/menu.png" alt="Dots menu icon"></button>
+                <div class="options">
+                    <button class="fav">Favorite</button>
+                    <hr>
+                    <button class="del">Delete</button>
+                </div>
+    */
+    let optionsBtMenu = document.createElement("button");
+    optionsBtMenu.classList.add("optionsBt");
+    let img = document.createElement("img");
+    img.src = "assets/images/menu.png";
+    optionsBtMenu.appendChild(img);
+    note.appendChild(optionsBtMenu);
+
+    let optionsMenu = document.createElement("div");
+    optionsMenu.classList.add("options");
+    let favBt = document.createElement("button");
+    favBt.classList.add("fav");
+    favBt.textContent = "Favorite";
+    optionsMenu.appendChild(favBt);
+
+    optionsMenu.appendChild(document.createElement("hr"));
+
+   let delBt = document.createElement("button");
+   delBt.classList.add("del");
+   delBt.textContent = "Delete";
+   optionsMenu.appendChild(delBt);
+   note.appendChild(optionsMenu);
     changeNoteBgColor(note);
+
+    handelMenuBt(note);
+    deleteNote(note);
+
     notes.appendChild(note);
+    console.log("note added");
 
 });
-
 
 
 
